@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -65,7 +65,7 @@ class NeuralNetSolver:
             'weights_2': np.random.normal(0, self.INIT_RANGE, (self.HIDDEN_DIM, self.OUTPUT_DIM)),
             'bias_2': np.zeros(shape=(1, self.OUTPUT_DIM))}
 
-        self.optimizer = Optimizer(self.params_dict)
+        self.optimizer = RMSPropOptimizer(self.params_dict)
         self.termination_criteria = TerminationCriteria(self.MAX_ITER)
 
     @staticmethod
