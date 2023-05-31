@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import numpy as np
 from sklearn.model_selection import train_test_split
 import matplotlib.pylab as plt
@@ -89,7 +91,6 @@ class NeuralNetSolver:
         """
         assert x.shape[1] == self.params_dict['weights_1'].shape[0]
 
-        # PLEASE IMPLEMENT THE FORWARD PASS HERE
         layer_1 = np.dot(x, self.params_dict['weights_1']) + self.params_dict['bias_1']
         a1 = self.act_fn(layer_1)
         
@@ -145,11 +146,8 @@ class NeuralNetSolver:
         :return:
             A [HIDDEN_DIM] numpy array of weight gradients and a [1] numpy array of bias gradients
         """
-        # PLEASE REPLACE THE FOLLOWING TWO LINES WITH A CALCULATION OF THE GRADIENTS
 
-        # weights1_grad = np.zeros((self.INPUT_DIM, self.HIDDEN_DIM))
-        # bias1_grad = np.zeros((1, self.HIDDEN_DIM))
-
+        # Calculate the gradients
         # δ2 = δ1 U ◦ (sig(h) * (1 - sig(h))
         # layer_2_grads = get_layer_2_grads(self, X, y, layer_1_out, layer_2_out)
 
@@ -211,8 +209,6 @@ class NeuralNetSolver:
         :return:
             A scalar containing the loss.
         """
-        # PLEASE REPLACE WITH AN IMPLEMENTATION OF THE LOSS
-        # print(y, y_hat)
         return np.mean((y - y_hat) ** 2)
 
 
